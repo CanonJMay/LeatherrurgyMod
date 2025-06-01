@@ -1,0 +1,18 @@
+{
+  "itemGroup.leatherrurgy.mod_items_group": "Leatherrurgy",
+
+  "item.leatherrurgy.small_rawhide": "Small Rawhide",
+  "item.leatherrurgy.medium_rawhide": "Medium Rawhide",
+  "item.leatherrurgy.large_rawhide": "Large Rawhide",
+
+  "item.leatherrurgy.small_soaked_hide": "Small Soaked Hide",
+  "item.leatherrurgy.medium_soaked_hide": "Medium Soaked Hide",
+  "item.leatherrurgy.large_soaked_hide": "Large Soaked Hide",
+
+  "item.leatherrurgy.small_tanned_hide": "Small Tanned Hide",
+  "item.leatherrurgy.medium_tanned_hide": "Medium Tanned Hide",
+  "item.leatherrurgy.large_tanned_hide": "Large Tanned Hide",
+
+  "block.leatherrurgy.leather_block": "Block of Leather",
+  "block.leatherrurgy.spruce_tanning_vat": "Spruce Tanning Vat"
+}

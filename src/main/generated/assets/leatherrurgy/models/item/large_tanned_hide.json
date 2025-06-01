@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "leatherrurgy:item/large_tanned_hide"
+  }
+}
