@@ -23,7 +23,7 @@ public class ModItems {
     public static final Item LARGE_TANNED_HIDE = registerItem("large_tanned_hide", new Item(new Item.Settings()));
 
 
-    private  static Item registerItem(String name, Item item) {
+    private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Leatherrurgy.MOD_ID, name), item);
     }
 

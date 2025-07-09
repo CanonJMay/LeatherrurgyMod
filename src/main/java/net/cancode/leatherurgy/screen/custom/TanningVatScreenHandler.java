@@ -31,8 +31,9 @@ public class TanningVatScreenHandler extends ScreenHandler {
         this.blockEntity = ((TanningVatBlockEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 54, 34));
-        this.addSlot(new Slot(inventory, 3, 104, 34));
+        this.addSlot(new Slot(inventory, 0, 54, 24));
+        this.addSlot(new Slot(inventory, 1, 54, 45));
+        this.addSlot(new Slot(inventory, 2, 104, 34));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

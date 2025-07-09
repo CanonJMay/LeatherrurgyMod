@@ -14,6 +14,8 @@ public class TanningVatScreen extends HandledScreen<TanningVatScreenHandler> {
             Identifier.of(Leatherrurgy.MOD_ID, "textures/gui/tanning_vat/tanning_vat_gui.png");
     private static final Identifier ARROW_TEXTURE =
             Identifier.of(Leatherrurgy.MOD_ID, "textures/gui/arrow_progress.png");
+    private static final Identifier WATER_TEXTURE =
+            Identifier.of(Leatherrurgy.MOD_ID, "textures/gui/water_amount.png");
 
     public TanningVatScreen(TanningVatScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

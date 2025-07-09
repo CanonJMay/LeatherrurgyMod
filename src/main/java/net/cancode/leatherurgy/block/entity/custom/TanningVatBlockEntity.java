@@ -3,6 +3,9 @@ package net.cancode.leatherurgy.block.entity.custom;
 import net.cancode.leatherurgy.block.entity.ImplementedInventory;
 import net.cancode.leatherurgy.block.entity.ModBlockEntities;
 import net.cancode.leatherurgy.item.ModItems;
+import net.cancode.leatherurgy.recipe.ModRecipes;
+import net.cancode.leatherurgy.recipe.TanningVatRecipe;
+import net.cancode.leatherurgy.recipe.TanningVatRecipeInput;
 import net.cancode.leatherurgy.screen.custom.TanningVatScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -13,10 +16,12 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -27,13 +32,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     private static final int HIDE_SLOT = 0;
-    private static final int WATER_SLOT = 1;
-    private static final int LOG_SLOT = 2;
-    private static final int OUTPUT_SLOT = 3;
+    private static final int LOG_SLOT = 1;
+    private static final int OUTPUT_SLOT = 2;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -125,9 +131,12 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.LARGE_TANNED_HIDE, 1);
+        Optional<RecipeEntry<TanningVatRecipe>> recipe = getCurrentRecipe();
+
+        ItemStack output = recipe.get().value().output();
 
         this.removeStack(HIDE_SLOT, 1);
+        this.removeStack(LOG_SLOT, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
     }
@@ -142,15 +151,18 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private boolean hasRecipe() {
-        Item input1 = ModItems.LARGE_SOAKED_HIDE;
-        //Item input2 = ModItems.MEDIUM_SOAKED_HIDE;
-        //Item input3 = ModItems.SMALL_SOAKED_HIDE;
+        Optional<RecipeEntry<TanningVatRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) {
+            return false;
+        }
 
-        ItemStack output1 = new ItemStack(ModItems.LARGE_TANNED_HIDE, 1);
-        //ItemStack output2 = new ItemStack(ModItems.MEDIUM_TANNED_HIDE, 1);
-        //ItemStack output3 = new ItemStack(ModItems.SMALL_TANNED_HIDE, 1);
+        ItemStack output = recipe.get().value().output();
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
 
-        return this.getStack(HIDE_SLOT).isOf(input1) && canInsertAmountIntoOutputSlot(output1.getCount()) && canInsertItemIntoOutputSlot(output1);
+    private Optional<RecipeEntry<TanningVatRecipe>> getCurrentRecipe() {
+        return this.getWorld().getRecipeManager()
+                .getFirstMatch(ModRecipes.TANNING_VAT_TYPE, new TanningVatRecipeInput(inventory.get(HIDE_SLOT), inventory.get(LOG_SLOT)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

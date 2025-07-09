@@ -4,6 +4,7 @@ import net.cancode.leatherurgy.block.ModBlocks;
 import net.cancode.leatherurgy.block.entity.ModBlockEntities;
 import net.cancode.leatherurgy.item.ModItemGroups;
 import net.cancode.leatherurgy.item.ModItems;
+import net.cancode.leatherurgy.recipe.ModRecipes;
 import net.cancode.leatherurgy.screen.ModScreenHandler;
 import net.cancode.leatherurgy.util.ModLootTableFunctions.RemoveLeatherFromMobLootFunction;
 import net.cancode.leatherurgy.util.ModLootTableFunctions.RemoveRabbitHideFromMobLootFunction;
@@ -31,6 +32,8 @@ public class Leatherrurgy implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 		RemoveLeatherFromMobLootFunction.register();
 		RemoveRabbitHideFromMobLootFunction.register();
+
+		ModRecipes.registerRecipes();
 
 		UseBlockCallback.EVENT.register(new SoakingHideEvent());
 	}
