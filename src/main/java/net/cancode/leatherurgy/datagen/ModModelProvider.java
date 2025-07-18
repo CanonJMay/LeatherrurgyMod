@@ -32,5 +32,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LARGE_TANNED_HIDE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MEDIUM_TANNED_HIDE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SMALL_TANNED_HIDE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.LEATHER_CORD, Models.GENERATED);
     }
 }

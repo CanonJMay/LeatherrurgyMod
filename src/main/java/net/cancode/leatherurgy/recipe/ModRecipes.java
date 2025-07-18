@@ -19,6 +19,16 @@ public class ModRecipes {
                     return "tanning_vat";
                 }});
 
+    public static final RecipeSerializer<DryingRackRecipe> DRYING_RACK_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Leatherrurgy.MOD_ID, "drying_rack"),
+            new DryingRackRecipe.Serializer());
+    public static final RecipeType<DryingRackRecipe> DRYING_RACK_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Leatherrurgy.MOD_ID, "drying_rack"), new RecipeType<DryingRackRecipe>() {
+                @Override
+                public String toString() {
+                    return "drying_rack";
+                }});
+
 
     public static void registerRecipes() {
         Leatherrurgy.LOGGER.info("Registering Recipes for " + Leatherrurgy.MOD_ID);

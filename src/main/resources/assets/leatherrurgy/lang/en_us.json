@@ -1,5 +1,6 @@
 {
-  "itemGroup.leatherrurgy.mod_items_group": "Leatherrurgy",
+  "itemGroup.leatherrurgy.mod_items_group": "Leatherrurgy Items",
+  "itemGroup.leatherrurgy.mod_blocks_group": "Leatherrurgy Blocks",
 
   "item.leatherrurgy.small_rawhide": "Small Rawhide",
   "item.leatherrurgy.medium_rawhide": "Medium Rawhide",
@@ -13,6 +14,21 @@
   "item.leatherrurgy.medium_tanned_hide": "Medium Tanned Hide",
   "item.leatherrurgy.large_tanned_hide": "Large Tanned Hide",
 
+  "item.leatherrurgy.leather_cord": "Leather Cord",
+
+  "item.leatherrurgy.composite_bow": "Composite Bow",
+
   "block.leatherrurgy.leather_block": "Block of Leather",
-  "block.leatherrurgy.spruce_tanning_vat": "Spruce Tanning Vat"
+
+  "block.leatherrurgy.spruce_tanning_vat": "Spruce Tanning Vat",
+  "block.leatherrurgy.oak_tanning_vat": "Oak Tanning Vat",
+  "block.leatherrurgy.dark_oak_tanning_vat": "Dark Oak Tanning Vat",
+  "block.leatherrurgy.acacia_tanning_vat": "Acacia Tanning Vat",
+  "block.leatherrurgy.birch_tanning_vat": "Birch Tanning Vat",
+  "block.leatherrurgy.mangrove_tanning_vat": "Mangrove Tanning Vat",
+  "block.leatherrurgy.cherry_tanning_vat": "Cherry Tanning Vat",
+  "block.leatherrurgy.jungle_tanning_vat": "Jungle Tanning Vat",
+
+
+  "block.leatherrurgy.drying_rack": "Drying Rack"
 }

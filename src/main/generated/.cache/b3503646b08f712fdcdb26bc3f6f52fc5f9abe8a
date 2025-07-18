@@ -1,2 +1,11 @@
-// 1.21.1	2025-05-29T02:16:38.3959732	Leatherrurgy/Block Loot Tables
+// 1.21.1	2025-07-17T07:10:46.4612557	Leatherrurgy/Block Loot Tables
+5aceecc740532fc87bf981f23665f8639af43e63 data\leatherrurgy\loot_table\blocks\oak_tanning_vat.json
+74b44d290a3a23060262a30dec675b1948e28c92 data\leatherrurgy\loot_table\blocks\cherry_tanning_vat.json
+0ce94db228e0df822805271d243670341f960428 data\leatherrurgy\loot_table\blocks\birch_tanning_vat.json
+1c2f022577bb1d8d0de314fb86a76a48330d136c data\leatherrurgy\loot_table\blocks\acacia_tanning_vat.json
+537f0234312e9e1e7887c89eed506de484f601e8 data\leatherrurgy\loot_table\blocks\spruce_tanning_vat.json
+09396bb5ff8b4941b0838190fb5f7b514f042378 data\leatherrurgy\loot_table\blocks\drying_rack.json
+856abc2c9e38db57b11059f7853f88272ff59eb2 data\leatherrurgy\loot_table\blocks\mangrove_tanning_vat.json
+7e85a8fbade5f952f1732257d133f8ebc0b4ebad data\leatherrurgy\loot_table\blocks\jungle_tanning_vat.json
+5a1819ce1ff68fcd6c23b8d5982f42868aa19464 data\leatherrurgy\loot_table\blocks\dark_oak_tanning_vat.json
 26e73ca11d7d56bd3630b22d6085c3bc8aec1dff data\leatherrurgy\loot_table\blocks\leather_block.json

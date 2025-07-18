@@ -15,5 +15,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(ModBlocks.LEATHER_BLOCK);
+        addDrop(ModBlocks.SPRUCE_TANNING_VAT);
+        addDrop(ModBlocks.ACACIA_TANNING_VAT);
+        addDrop(ModBlocks.BIRCH_TANNING_VAT);
+        addDrop(ModBlocks.OAK_TANNING_VAT);
+        addDrop(ModBlocks.DARK_OAK_TANNING_VAT);
+        addDrop(ModBlocks.JUNGLE_TANNING_VAT);
+        addDrop(ModBlocks.CHERRY_TANNING_VAT);
+        addDrop(ModBlocks.MANGROVE_TANNING_VAT);
+        addDrop(ModBlocks.DRYING_RACK);
     }
 }

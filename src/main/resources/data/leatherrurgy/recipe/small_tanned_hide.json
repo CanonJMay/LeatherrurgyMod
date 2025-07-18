@@ -1,8 +1,12 @@
 {
   "type": "leatherrurgy:tanning_vat",
-  "ingredient1": "leatherrurgy:small_soaked_hide",
-  "ingredient2": "minecraft:oak_log",
+  "ingredient1": {
+    "item": "leatherrurgy:small_soaked_hide"
+  },
+  "ingredient2": {
+    "tag": "minecraft:logs_that_burn"
+  },
   "result": {
-    "id" : "leatherrurgy:small_tanned_hide"
+    "id": "leatherrurgy:small_tanned_hide"
   }
 }

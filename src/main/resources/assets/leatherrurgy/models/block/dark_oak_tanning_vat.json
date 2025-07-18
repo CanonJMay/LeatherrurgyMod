@@ -1,0 +1,6 @@
+{
+  "parent": "leatherrurgy:block/tanning_vat",
+  "textures": {
+    "texture": "leatherrurgy:block/dark_oak_tanning_vat"
+  }
+}

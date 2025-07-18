@@ -1,0 +1,7 @@
+{
+  "parent": "leatherrurgy:block/tanning_vat",
+  "textures": {
+    "texture": "leatherrurgy:block/mangrove_tanning_vat"
+
+  }
+}

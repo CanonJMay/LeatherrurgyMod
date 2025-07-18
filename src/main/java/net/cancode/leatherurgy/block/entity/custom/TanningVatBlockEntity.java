@@ -1,8 +1,8 @@
 package net.cancode.leatherurgy.block.entity.custom;
 
+import net.cancode.leatherurgy.Leatherrurgy;
 import net.cancode.leatherurgy.block.entity.ImplementedInventory;
 import net.cancode.leatherurgy.block.entity.ModBlockEntities;
-import net.cancode.leatherurgy.item.ModItems;
 import net.cancode.leatherurgy.recipe.ModRecipes;
 import net.cancode.leatherurgy.recipe.TanningVatRecipe;
 import net.cancode.leatherurgy.recipe.TanningVatRecipeInput;
@@ -10,13 +10,10 @@ import net.cancode.leatherurgy.screen.custom.TanningVatScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -35,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     private static final int HIDE_SLOT = 0;
     private static final int LOG_SLOT = 1;
@@ -43,7 +40,7 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 400;
 
     public TanningVatBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TANNING_VAT_BE, pos, state);
@@ -111,7 +108,10 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(hasRecipe()) {
+        // Test getCurrentRecipe
+        getCurrentRecipe(); // ← logs result in console
+
+        if (hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
 
@@ -122,12 +122,11 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
         } else {
             resetProgress();
         }
-
     }
 
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 72;
+        this.maxProgress = 400;
     }
 
     private void craftItem() {
@@ -161,9 +160,20 @@ public class TanningVatBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private Optional<RecipeEntry<TanningVatRecipe>> getCurrentRecipe() {
-        return this.getWorld().getRecipeManager()
-                .getFirstMatch(ModRecipes.TANNING_VAT_TYPE, new TanningVatRecipeInput(inventory.get(HIDE_SLOT), inventory.get(LOG_SLOT)), this.getWorld());
+        TanningVatRecipeInput input = new TanningVatRecipeInput(inventory.get(HIDE_SLOT), inventory.get(LOG_SLOT));
+
+        Optional<RecipeEntry<TanningVatRecipe>> match = this.getWorld().getRecipeManager()
+                .getFirstMatch(ModRecipes.TANNING_VAT_TYPE, input, this.getWorld());
+
+        if (match.isEmpty()) {
+            Leatherrurgy.LOGGER.warn("No recipe match for: {}, {}", input.getStackInSlot(0), input.getStackInSlot(1));
+        } else {
+            Leatherrurgy.LOGGER.info("Matched recipe: {}", match.get().id());
+        }
+
+        return match;
     }
+
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
         return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();

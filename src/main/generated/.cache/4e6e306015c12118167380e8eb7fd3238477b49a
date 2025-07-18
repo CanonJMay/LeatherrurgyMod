@@ -1,7 +1,8 @@
-// 1.21.1	2025-05-29T02:16:38.3944472	Leatherrurgy/Model Definitions
+// 1.21.1	2025-07-17T07:10:46.4515402	Leatherrurgy/Model Definitions
 304af48031072423d90974285537a3cb779a2312 assets\leatherrurgy\models\item\large_tanned_hide.json
 54d545cff21812cb486faadef5d71b6257529453 assets\leatherrurgy\models\item\leather_block.json
 b357efc1281b9e9c7141b6f68a76e1ff9f571b42 assets\leatherrurgy\models\item\small_soaked_hide.json
+02d534563ffdcbff12a602b812c0c26acff19777 assets\leatherrurgy\models\item\leather_cord.json
 2aaa5e755f12745c4dbd0708c9727921ee2c5a1e assets\leatherrurgy\models\item\medium_tanned_hide.json
 bad65cef6b15ecac5f6bbe61444de657be0fbf58 assets\leatherrurgy\models\item\medium_soaked_hide.json
 2bc7c9685c9879405e4349bdeec2c32905de6afd assets\leatherrurgy\models\item\medium_rawhide.json

@@ -1,0 +1,10 @@
+{
+  "type": "leatherrurgy:drying_rack",
+  "ingredient": {
+    "item": "leatherrurgy:small_tanned_hide"
+  },
+  "result": {
+    "id": "minecraft:leather",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "leatherrurgy:tanning_vat",
+  "ingredient1": {
+    "item": "leatherrurgy:medium_soaked_hide"
+  },
+  "ingredient2": {
+    "tag": "minecraft:logs_that_burn"
+  },
+  "result": {
+    "id": "leatherrurgy:medium_tanned_hide"
+  }
+}

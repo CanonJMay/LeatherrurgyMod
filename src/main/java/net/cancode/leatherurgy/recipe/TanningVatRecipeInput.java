@@ -13,6 +13,7 @@ public record TanningVatRecipeInput(ItemStack hideInput, ItemStack logInput) imp
         };
     }
 
+
     @Override
     public int getSize() {
         return 2;

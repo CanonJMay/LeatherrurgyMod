@@ -17,15 +17,19 @@ public record TanningVatRecipe(Ingredient inputItemHide, Ingredient inputItemLog
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
-        DefaultedList<Ingredient> list = DefaultedList.ofSize(2, Ingredient.EMPTY);
-        list.set(0, this.inputItemHide);
-        list.set(1, this.inputItemLog);
+        DefaultedList<Ingredient> list = DefaultedList.of();
+        list.add(0, this.inputItemHide);
+        list.add(1, this.inputItemLog);
         return list;
     }
 
     // Only if you want client-side preview to match server-side logic.
     @Override
     public boolean matches(TanningVatRecipeInput input, World world) {
+        if(world.isClient()) {
+            return false;
+        }
+
         return inputItemHide.test(input.getStackInSlot(0)) && inputItemLog.test(input.getStackInSlot(1));
     }
 

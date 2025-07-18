@@ -9,6 +9,7 @@ import net.cancode.leatherurgy.screen.ModScreenHandler;
 import net.cancode.leatherurgy.util.ModLootTableFunctions.RemoveLeatherFromMobLootFunction;
 import net.cancode.leatherurgy.util.ModLootTableFunctions.RemoveRabbitHideFromMobLootFunction;
 import net.cancode.leatherurgy.util.ModLootTableModifiers;
+import net.cancode.leatherurgy.util.ModModelPredicates;
 import net.cancode.leatherurgy.util.SoakingHideEvent;
 import net.fabricmc.api.ModInitializer;
 
@@ -32,6 +33,8 @@ public class Leatherrurgy implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 		RemoveLeatherFromMobLootFunction.register();
 		RemoveRabbitHideFromMobLootFunction.register();
+
+		ModModelPredicates.registerModelPredicates();
 
 		ModRecipes.registerRecipes();
 

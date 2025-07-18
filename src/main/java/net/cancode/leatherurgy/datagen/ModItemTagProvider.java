@@ -5,6 +5,8 @@ import net.cancode.leatherurgy.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.EnchantmentTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,5 +31,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.LARGE_TANNED_HIDE)
                 .add(ModItems.MEDIUM_TANNED_HIDE)
                 .add(ModItems.SMALL_TANNED_HIDE);
+
+        getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE)
+                .add(ModItems.COMPOSITE_BOW);
     }
 }

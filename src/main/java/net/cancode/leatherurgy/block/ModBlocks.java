@@ -1,9 +1,12 @@
 package net.cancode.leatherurgy.block;
 
 import net.cancode.leatherurgy.Leatherrurgy;
+import net.cancode.leatherurgy.block.custom.DryingRackBlock;
 import net.cancode.leatherurgy.block.custom.TanningVatBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.WoodType;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -18,7 +21,31 @@ public class ModBlocks {
                     .strength(1f).sounds(BlockSoundGroup.WOOL)));
 
     public static final Block SPRUCE_TANNING_VAT = registerBlock("spruce_tanning_vat",
-            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD)));
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block OAK_TANNING_VAT = registerBlock("oak_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block DARK_OAK_TANNING_VAT = registerBlock("dark_oak_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block BIRCH_TANNING_VAT = registerBlock("birch_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block ACACIA_TANNING_VAT = registerBlock("acacia_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block MANGROVE_TANNING_VAT = registerBlock("mangrove_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block CHERRY_TANNING_VAT = registerBlock("cherry_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block JUNGLE_TANNING_VAT = registerBlock("jungle_tanning_vat",
+            new TanningVatBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
+
+    public static final Block DRYING_RACK = registerBlock("drying_rack",
+            new DryingRackBlock(AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.WOOD).hardness(1)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
